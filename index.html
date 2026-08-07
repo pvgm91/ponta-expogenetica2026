@@ -516,7 +516,10 @@ dialog footer{padding:12px 16px;display:flex;justify-content:flex-end;gap:8px;bo
       <div class="campo"><label for="ghRepo">Repositório</label><input id="ghRepo" placeholder="ex.: agenda-expogenetica"></div>
       <div class="campo"><label for="ghBranch">Branch</label><input id="ghBranch" placeholder="main"></div>
       <div class="campo largo"><label for="ghPath">Arquivo de dados</label><input id="ghPath" placeholder="dados/agenda.json"></div>
-      <div class="campo largo"><label for="ghToken">Token de acesso (só para quem edita)</label><input type="password" id="ghToken" placeholder="github_pat_..."></div>
+      <div class="campo largo"><label for="ghToken">Token de acesso (só para quem edita)</label>
+        <div class="login-linha"><input type="password" id="ghToken" placeholder="github_pat_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="button" class="login-olho" id="btOlhoToken" title="Mostrar token">👁</button></div>
+      </div>
       <div class="gh-nota">
         Sem token o app <b>lê</b> a agenda do repositório (se ele for público) e você trabalha só na sua cópia local.
         Com token, o botão <b>Enviar</b> grava o arquivo no repositório e todo mundo passa a ver a mesma agenda.<br>
@@ -528,6 +531,7 @@ dialog footer{padding:12px 16px;display:flex;justify-content:flex-end;gap:8px;bo
   </div>
   <footer>
     <button class="bt perigo" id="btGhEsquecer">Esquecer token</button>
+    <button class="bt" id="btGhTestar">Testar token</button>
     <span style="flex:1"></span>
     <button class="bt" id="btGhFechar">Fechar</button>
     <button class="bt" id="btGhBaixar">Buscar do GitHub</button>
@@ -1791,6 +1795,33 @@ document.getElementById('btGithub').onclick=()=>{
 document.getElementById('btGhFechar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); pintarStatusGh(); fecharDlg(dlgGh); };
 document.getElementById('btGhBaixar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); baixarDoGh(false); };
 document.getElementById('btGhEnviar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); enviarParaGh(); };
+document.getElementById('btOlhoToken').onclick=()=>{
+  const c=document.getElementById('ghToken');
+  c.type=c.type==='password'?'text':'password';
+};
+/* diagnóstico: diz exatamente em que etapa o GitHub recusa */
+async function testarTokenGh(){
+  lerCamposGh(); await salvarCfgGh();
+  if(!gh.token){ logGh('Cole o token no campo acima.',true); return; }
+  const t=gh.token;
+  const formato=/^(github_pat_|ghp_|gho_|ghs_)/.test(t)?'':' — atenção: não começa com github_pat_ nem ghp_, pode ser um pedaço só ou o nome do token';
+  try{
+    logGh(`Testando token de ${t.length} caracteres${formato}…`);
+    const r=await fetch('https://api.github.com/user',{headers:cabecalhosGh(),cache:'no-store'});
+    if(r.status===401){ logGh(`O GitHub não reconheceu este token (401). Ele tem ${t.length} caracteres${formato}. Gere um novo e cole inteiro.`,true); return; }
+    if(!r.ok){ logGh('GitHub respondeu '+r.status+' ao identificar o token.',true); return; }
+    const u=await r.json();
+    const r2=await fetch(`https://api.github.com/repos/${gh.owner}/${gh.repo}`,{headers:cabecalhosGh(),cache:'no-store'});
+    if(r2.status===404){ logGh(`Token válido (conta ${u.login}), mas ele não enxerga ${gh.owner}/${gh.repo}. Em Repository access, marque "Only select repositories" e escolha este repositório.`,true); return; }
+    if(!r2.ok){ logGh(`Token válido (conta ${u.login}), mas o repositório respondeu ${r2.status}.`,true); return; }
+    const repo=await r2.json();
+    const escreve=repo.permissions&&repo.permissions.push;
+    logGh(escreve
+      ? `Tudo certo: token da conta ${u.login} com permissão de escrita em ${gh.owner}/${gh.repo}. Pode usar o Enviar.`
+      : `Token válido (conta ${u.login}) e enxerga o repositório, mas só para leitura. Ajuste Permissions → Contents para "Read and write" e clique em Update token.`, !escreve);
+  }catch(e){ logGh('Falha ao contatar o GitHub: '+e.message,true); }
+}
+document.getElementById('btGhTestar').onclick=testarTokenGh;
 document.getElementById('btGhEsquecer').onclick=async()=>{
   gh.token=''; document.getElementById('ghToken').value='';
   await salvarCfgGh(); logGh('Token apagado deste navegador.');
