@@ -1,0 +1,970 @@
+{
+ "versao": 4,
+ "ordem": "manual",
+ "estande": {
+  "inicio": "08:00",
+  "fim": "19:00"
+ },
+ "foraEstande": [
+  {
+   "pid": "p9",
+   "dia": "2026-08-14",
+   "a": 960,
+   "b": 1140
+  },
+  {
+   "pid": "p10",
+   "dia": "2026-08-14",
+   "a": 960,
+   "b": 1140
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-14",
+   "a": 1080,
+   "b": 1140
+  },
+  {
+   "pid": "p3",
+   "dia": "2026-08-15",
+   "a": 780,
+   "b": 1140
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-15",
+   "a": 780,
+   "b": 1140
+  },
+  {
+   "pid": "p4",
+   "dia": "2026-08-15",
+   "a": 780,
+   "b": 1140
+  },
+  {
+   "pid": "p0",
+   "dia": "2026-08-13",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p1",
+   "dia": "2026-08-13",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-13",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p3",
+   "dia": "2026-08-13",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p4",
+   "dia": "2026-08-13",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p7",
+   "dia": "2026-08-16",
+   "a": 480,
+   "b": 720
+  },
+  {
+   "pid": "p8",
+   "dia": "2026-08-16",
+   "a": 480,
+   "b": 720
+  },
+  {
+   "pid": "p1",
+   "dia": "2026-08-16",
+   "a": 480,
+   "b": 720
+  },
+  {
+   "pid": "p0",
+   "dia": "2026-08-16",
+   "a": 480,
+   "b": 720
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-16",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p3",
+   "dia": "2026-08-16",
+   "a": 720,
+   "b": 1140
+  },
+  {
+   "pid": "p4",
+   "dia": "2026-08-16",
+   "a": 720,
+   "b": 1140
+  },
+  {
+   "pid": "p4",
+   "dia": "2026-08-14",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p3",
+   "dia": "2026-08-14",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p1",
+   "dia": "2026-08-17",
+   "a": 480,
+   "b": 780
+  },
+  {
+   "pid": "p1",
+   "dia": "2026-08-17",
+   "a": 900,
+   "b": 1140
+  },
+  {
+   "pid": "p0",
+   "dia": "2026-08-17",
+   "a": 480,
+   "b": 780
+  },
+  {
+   "pid": "p0",
+   "dia": "2026-08-17",
+   "a": 900,
+   "b": 1140
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-17",
+   "a": 480,
+   "b": 1140
+  },
+  {
+   "pid": "p5",
+   "dia": "2026-08-17",
+   "a": 480,
+   "b": 900
+  },
+  {
+   "pid": "p11",
+   "dia": "2026-08-17",
+   "a": 480,
+   "b": 780
+  },
+  {
+   "pid": "p6",
+   "dia": "2026-08-17",
+   "a": 480,
+   "b": 900
+  },
+  {
+   "pid": "p6",
+   "dia": "2026-08-17",
+   "a": 1080,
+   "b": 1140
+  },
+  {
+   "pid": "p4",
+   "dia": "2026-08-17",
+   "a": 780,
+   "b": 1140
+  },
+  {
+   "pid": "p4",
+   "dia": "2026-08-18",
+   "a": 1080,
+   "b": 1140
+  },
+  {
+   "pid": "p3",
+   "dia": "2026-08-18",
+   "a": 1080,
+   "b": 1140
+  },
+  {
+   "pid": "p8",
+   "dia": "2026-08-18",
+   "a": 1080,
+   "b": 1140
+  },
+  {
+   "pid": "p7",
+   "dia": "2026-08-18",
+   "a": 1080,
+   "b": 1140
+  },
+  {
+   "pid": "p6",
+   "dia": "2026-08-18",
+   "a": 960,
+   "b": 1140
+  },
+  {
+   "pid": "p5",
+   "dia": "2026-08-18",
+   "a": 960,
+   "b": 1140
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-18",
+   "a": 960,
+   "b": 1140
+  },
+  {
+   "pid": "p5",
+   "dia": "2026-08-21",
+   "a": 840,
+   "b": 1140
+  },
+  {
+   "pid": "p3",
+   "dia": "2026-08-21",
+   "a": 840,
+   "b": 1140
+  },
+  {
+   "pid": "p2",
+   "dia": "2026-08-21",
+   "a": 840,
+   "b": 1140
+  },
+  {
+   "pid": "p6",
+   "dia": "2026-08-21",
+   "a": 840,
+   "b": 1140
+  },
+  {
+   "pid": "p12",
+   "dia": "2026-08-21",
+   "a": 1080,
+   "b": 1140
+  }
+ ],
+ "dias": [
+  "2026-08-13",
+  "2026-08-14",
+  "2026-08-15",
+  "2026-08-16",
+  "2026-08-17",
+  "2026-08-18",
+  "2026-08-19",
+  "2026-08-20",
+  "2026-08-21",
+  "2026-08-22",
+  "2026-08-23"
+ ],
+ "pessoas": [
+  {
+   "id": "p10",
+   "nome": "Luiz Eduardo",
+   "area": "",
+   "cor": "#6B7A1F"
+  },
+  {
+   "id": "p2",
+   "nome": "Marcelo Ribas",
+   "area": "",
+   "cor": "#2E6E8F"
+  },
+  {
+   "id": "p0",
+   "nome": "Giovana Penha",
+   "area": "",
+   "cor": "#1F6E5A"
+  },
+  {
+   "id": "p1",
+   "nome": "Camila Ereno",
+   "area": "",
+   "cor": "#55701C"
+  },
+  {
+   "id": "p3",
+   "nome": "Kelly Alves",
+   "area": "",
+   "cor": "#8A6A1F"
+  },
+  {
+   "id": "p4",
+   "nome": "Netto",
+   "area": "Film Maker",
+   "cor": "#7a3e8f"
+  },
+  {
+   "id": "p9",
+   "nome": "Fábio Turati",
+   "area": "",
+   "cor": "#4E6E58"
+  },
+  {
+   "id": "p7",
+   "nome": "Cristina Carvalho",
+   "area": "",
+   "cor": "#1F4E79"
+  },
+  {
+   "id": "p8",
+   "nome": "Paulo Dias",
+   "area": "",
+   "cor": "#8F5A2E"
+  },
+  {
+   "id": "p5",
+   "nome": "Tobias Soares",
+   "area": "",
+   "cor": "#A8442A"
+  },
+  {
+   "id": "p6",
+   "nome": "Paulo Mariano",
+   "area": "",
+   "cor": "#3C6E1F"
+  },
+  {
+   "id": "p11",
+   "nome": "Guilherme Berdu",
+   "area": "",
+   "cor": "#2F7A6A"
+  },
+  {
+   "id": "p12",
+   "nome": "Brayan Dauria",
+   "area": "",
+   "cor": "#6E4B1F"
+  }
+ ],
+ "presenca": {
+  "p0|2026-08-14": true,
+  "p0|2026-08-15": true,
+  "p0|2026-08-16": true,
+  "p0|2026-08-17": true,
+  "p1|2026-08-14": true,
+  "p1|2026-08-15": true,
+  "p1|2026-08-16": true,
+  "p1|2026-08-17": true,
+  "p2|2026-08-14": true,
+  "p2|2026-08-15": true,
+  "p2|2026-08-16": true,
+  "p2|2026-08-17": true,
+  "p2|2026-08-18": true,
+  "p2|2026-08-19": true,
+  "p2|2026-08-20": true,
+  "p2|2026-08-21": true,
+  "p3|2026-08-14": true,
+  "p3|2026-08-15": true,
+  "p3|2026-08-16": true,
+  "p3|2026-08-17": true,
+  "p3|2026-08-18": true,
+  "p3|2026-08-19": true,
+  "p3|2026-08-20": true,
+  "p3|2026-08-21": true,
+  "p4|2026-08-14": true,
+  "p4|2026-08-15": true,
+  "p4|2026-08-16": true,
+  "p4|2026-08-17": true,
+  "p4|2026-08-18": true,
+  "p5|2026-08-17": true,
+  "p5|2026-08-18": true,
+  "p5|2026-08-19": true,
+  "p5|2026-08-20": true,
+  "p5|2026-08-21": true,
+  "p6|2026-08-17": true,
+  "p6|2026-08-18": true,
+  "p6|2026-08-19": true,
+  "p6|2026-08-20": true,
+  "p6|2026-08-21": true,
+  "p7|2026-08-16": true,
+  "p7|2026-08-17": true,
+  "p7|2026-08-18": true,
+  "p7|2026-08-19": true,
+  "p8|2026-08-16": true,
+  "p8|2026-08-17": true,
+  "p8|2026-08-18": true,
+  "p8|2026-08-19": true,
+  "p9|2026-08-14": true,
+  "p9|2026-08-15": true,
+  "p9|2026-08-16": true,
+  "p9|2026-08-17": true,
+  "p10|2026-08-13": true,
+  "p10|2026-08-14": true,
+  "p10|2026-08-19": true,
+  "p10|2026-08-20": true,
+  "p10|2026-08-21": true,
+  "p11|2026-08-17": true,
+  "p11|2026-08-18": true,
+  "p12|2026-08-19": true,
+  "p12|2026-08-20": true,
+  "p12|2026-08-21": true,
+  "p12|2026-08-22": true,
+  "p12|2026-08-23": true
+ },
+ "eventos": [
+  {
+   "id": "e0",
+   "dia": "2026-08-13",
+   "inicio": "14:00",
+   "fim": "19:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [
+    "p10"
+   ],
+   "tipo": "estande"
+  },
+  {
+   "id": "e1",
+   "dia": "2026-08-14",
+   "inicio": "08:00",
+   "fim": "14:00",
+   "titulo": "ANCP",
+   "local": "",
+   "resp": [
+    "p0",
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e2",
+   "dia": "2026-08-14",
+   "inicio": "14:00",
+   "fim": "16:00",
+   "titulo": "Abertura/Leilão EAO",
+   "local": "",
+   "resp": [
+    "p2",
+    "p10",
+    "p9"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e3",
+   "dia": "2026-08-14",
+   "inicio": "16:00",
+   "fim": "18:00",
+   "titulo": "Gravação: Efficiency Tour",
+   "local": "",
+   "resp": [
+    "p2",
+    "p3",
+    "p4"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e4",
+   "dia": "2026-08-14",
+   "inicio": "18:00",
+   "fim": "19:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e5",
+   "dia": "2026-08-14",
+   "inicio": "19:00",
+   "fim": "23:00",
+   "titulo": "Leilão JBJ",
+   "local": "",
+   "resp": [
+    "p9",
+    "p10"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e6",
+   "dia": "2026-08-15",
+   "inicio": "08:00",
+   "fim": "10:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e7",
+   "dia": "2026-08-15",
+   "inicio": "10:00",
+   "fim": "13:00",
+   "titulo": "Leilão Terra Brava",
+   "local": "",
+   "resp": [
+    "p0",
+    "p1",
+    "p2"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e8",
+   "dia": "2026-08-15",
+   "inicio": "14:00",
+   "fim": "18:00",
+   "titulo": "Gravação: Efficiency Tour",
+   "local": "",
+   "resp": [
+    "p2",
+    "p3",
+    "p4"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e9",
+   "dia": "2026-08-15",
+   "inicio": "18:00",
+   "fim": "19:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e10",
+   "dia": "2026-08-15",
+   "inicio": "19:00",
+   "fim": "23:00",
+   "titulo": "Leilão JBJ",
+   "local": "",
+   "resp": [
+    "p0",
+    "p1"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e11",
+   "dia": "2026-08-16",
+   "inicio": "14:00",
+   "fim": "18:00",
+   "titulo": "Gravação: Efficiency Tour",
+   "local": "",
+   "resp": [
+    "p2",
+    "p3",
+    "p4"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e12",
+   "dia": "2026-08-16",
+   "inicio": "09:00",
+   "fim": "12:00",
+   "titulo": "Leilão Rancho da Matinha",
+   "local": "",
+   "resp": [
+    "p0",
+    "p1",
+    "p2"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e13",
+   "dia": "2026-08-16",
+   "inicio": "12:00",
+   "fim": "16:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e15",
+   "dia": "2026-08-16",
+   "inicio": "18:00",
+   "fim": "19:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e16",
+   "dia": "2026-08-17",
+   "inicio": "09:00",
+   "fim": "13:00",
+   "titulo": "Desfile: ABS",
+   "local": "",
+   "resp": [
+    "p2",
+    "p0",
+    "p1"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e17",
+   "dia": "2026-08-17",
+   "inicio": "13:00",
+   "fim": "15:00",
+   "titulo": "Leilão Tulipa",
+   "local": "",
+   "resp": [
+    "p3",
+    "p9",
+    "p11"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e18",
+   "dia": "2026-08-17",
+   "inicio": "15:00",
+   "fim": "18:00",
+   "titulo": "Encontro PMGZ",
+   "local": "",
+   "resp": [
+    "p0",
+    "p1",
+    "p2",
+    "p6"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e19",
+   "dia": "2026-08-17",
+   "inicio": "18:00",
+   "fim": "20:00",
+   "titulo": "ATJ Geneplus",
+   "local": "",
+   "resp": [],
+   "tipo": "evento"
+  },
+  {
+   "id": "e20",
+   "dia": "2026-08-17",
+   "inicio": "20:00",
+   "fim": "23:00",
+   "titulo": "Leilão Katispera",
+   "local": "",
+   "resp": [
+    "p2",
+    "p7",
+    "p8"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e21",
+   "dia": "2026-08-18",
+   "inicio": "08:00",
+   "fim": "09:00",
+   "titulo": "palestras pavilhão",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e22",
+   "dia": "2026-08-18",
+   "inicio": "09:00",
+   "fim": "11:00",
+   "titulo": "ANCP Responde Eficiência Alimentar",
+   "local": "",
+   "resp": [],
+   "tipo": "evento"
+  },
+  {
+   "id": "e24",
+   "dia": "2026-08-18",
+   "inicio": "11:00",
+   "fim": "13:00",
+   "titulo": "Premiação (Ponta)",
+   "local": "",
+   "resp": [
+    "p2",
+    "p3",
+    "p4",
+    "p7",
+    "p8",
+    "p5",
+    "p6"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e25",
+   "dia": "2026-08-18",
+   "inicio": "13:00",
+   "fim": "16:00",
+   "titulo": "Leilão JMP e Agronova",
+   "local": "",
+   "resp": [
+    "p2",
+    "p5",
+    "p11"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e26",
+   "dia": "2026-08-18",
+   "inicio": "16:00",
+   "fim": "18:00",
+   "titulo": "Desfile: Genex",
+   "local": "",
+   "resp": [
+    "p3",
+    "p4",
+    "p6"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e27",
+   "dia": "2026-08-18",
+   "inicio": "17:00",
+   "fim": "19:00",
+   "titulo": "Desfile: Semex",
+   "local": "",
+   "resp": [
+    "p7",
+    "p8",
+    "p5"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e28",
+   "dia": "2026-08-18",
+   "inicio": "19:00",
+   "fim": "22:00",
+   "titulo": "Leilão Hora",
+   "local": "",
+   "resp": [
+    "p2",
+    "p7",
+    "p8"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e29",
+   "dia": "2026-08-19",
+   "inicio": "09:00",
+   "fim": "12:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e30",
+   "dia": "2026-08-19",
+   "inicio": "13:00",
+   "fim": "16:00",
+   "titulo": "Leilão Genética Aditiva",
+   "local": "",
+   "resp": [
+    "p2",
+    "p5",
+    "p6"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e31",
+   "dia": "2026-08-20",
+   "inicio": "09:00",
+   "fim": "11:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e32",
+   "dia": "2026-08-20",
+   "inicio": "11:00",
+   "fim": "13:00",
+   "titulo": "Result PNAT",
+   "local": "",
+   "resp": [
+    "p3",
+    "p6"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e34",
+   "dia": "2026-08-21",
+   "inicio": "08:00",
+   "fim": "13:00",
+   "titulo": "estande e pavilhões",
+   "local": "",
+   "resp": [],
+   "tipo": "estande"
+  },
+  {
+   "id": "e35",
+   "dia": "2026-08-21",
+   "inicio": "13:00",
+   "fim": "14:00",
+   "titulo": "Leilão PNAT",
+   "local": "",
+   "resp": [
+    "p2",
+    "p3",
+    "p5",
+    "p6"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "e36",
+   "dia": "2026-08-21",
+   "inicio": "14:00",
+   "fim": "18:00",
+   "titulo": "Evento Melhora+",
+   "local": "",
+   "resp": [
+    "p12"
+   ],
+   "tipo": "evento"
+  },
+  {
+   "id": "emsdhbnnikon",
+   "titulo": "Leilão Nelore Paranã + Casa Branca",
+   "dia": "2026-08-20",
+   "inicio": "11:00",
+   "fim": "15:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": [
+    "p2",
+    "p5",
+    "p10"
+   ]
+  },
+  {
+   "id": "emsdhmosgfy2",
+   "titulo": "Estande",
+   "dia": "2026-08-16",
+   "inicio": "12:00",
+   "fim": "13:00",
+   "local": "",
+   "tipo": "estande",
+   "resp": []
+  },
+  {
+   "id": "emsdidj2kayf",
+   "titulo": "Leilão Boi com Bula (Brahman)",
+   "dia": "2026-08-18",
+   "inicio": "19:00",
+   "fim": "22:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": [
+    "p3",
+    "p5"
+   ]
+  },
+  {
+   "id": "emsht6ldqfau",
+   "titulo": "Fernando Baldi (VPJ)",
+   "dia": "2026-08-18",
+   "inicio": "10:00",
+   "fim": "11:00",
+   "local": "Estande Ponta",
+   "tipo": "estande",
+   "resp": [
+    "p2",
+    "p5"
+   ]
+  },
+  {
+   "id": "emsht8rd9raf",
+   "titulo": "Fernando Baldi (VPJ)",
+   "dia": "2026-08-18",
+   "inicio": "10:00",
+   "fim": "11:00",
+   "local": "Estande Ponta",
+   "tipo": "evento",
+   "resp": [
+    "p2",
+    "p5"
+   ]
+  },
+  {
+   "id": "emshwm2l4lk0",
+   "titulo": "HAPPY HOUR  - PONTIERI",
+   "dia": "2026-08-17",
+   "inicio": "17:00",
+   "fim": "19:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": [
+    "p0",
+    "p1",
+    "p6"
+   ]
+  }
+ ],
+ "contatos": [
+  {
+   "empresa": "Programa Leilões",
+   "pessoa": "Barbara",
+   "contato": "(43) 99146-3994",
+   "msg": ""
+  },
+  {
+   "empresa": "Alta/ Eff Tour",
+   "pessoa": "Adriano",
+   "contato": " 34 9841-5283",
+   "msg": ""
+  },
+  {
+   "empresa": "ABS/ Eff Tour",
+   "pessoa": "Marcus",
+   "contato": "21 97906-6983",
+   "msg": ""
+  },
+  {
+   "empresa": "Genex/ Eff Tour",
+   "pessoa": "Gustavo",
+   "contato": "16 99603-6614",
+   "msg": ""
+  },
+  {
+   "empresa": "CRV/ Eff Tour",
+   "pessoa": "Henrique",
+   "contato": "16 99630-5248",
+   "msg": ""
+  },
+  {
+   "empresa": "Semex/ Eff Tour",
+   "pessoa": "Fernanda",
+   "contato": "47 9942-2156",
+   "msg": ""
+  }
+ ]
+}
