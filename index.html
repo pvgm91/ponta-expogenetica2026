@@ -72,6 +72,15 @@ h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:.01em}
 .btn:hover{background:rgba(255,255,255,.12)}
 .btn.primario{background:var(--lime);border-color:var(--lime);color:#20320A;font-weight:600}
 .btn.primario:hover{background:#B0D62C}
+.menu{position:relative}
+.btn.pontos{font-size:18px;line-height:1;padding:6px 11px}
+.menu-lista{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--linha);
+  border-radius:5px;box-shadow:0 12px 34px rgba(15,46,39,.28);min-width:210px;padding:5px;z-index:120}
+.menu-lista[hidden]{display:none}
+.menu-lista button{display:block;width:100%;text-align:left;background:transparent;border:0;padding:8px 11px;
+  border-radius:3px;cursor:pointer;font-size:13.5px;color:var(--texto)}
+.menu-lista button:hover{background:var(--pasto)}
+.menu-lista hr{border:0;border-top:1px solid var(--linha);margin:4px 0}
 .gh-status{display:flex;align-items:center;gap:7px;font-size:12px;color:#A9C4B9;background:rgba(255,255,255,.08);
   padding:5px 11px;border-radius:14px;white-space:nowrap}
 .gh-status .bolha{width:8px;height:8px;border-radius:50%;background:var(--lime);flex:0 0 auto}
@@ -361,12 +370,21 @@ dialog footer{padding:12px 16px;display:flex;justify-content:flex-end;gap:8px;bo
   <div class="espaco"></div>
   <div class="acoes">
     <span class="gh-status" id="ghStatus" hidden></span>
-    <button class="btn" id="btGithub">Compartilhar (GitHub)</button>
-    <button class="btn primario" id="btExcel">Baixar planilha (.xlsx)</button>
-    <button class="btn" id="btBackup">Salvar backup</button>
-    <button class="btn" id="btRestaurar">Abrir backup</button>
-    <button class="btn" id="btZerar">Restaurar padrão</button>
-    <button class="btn" id="btSair">Sair</button>
+    <button class="btn primario" id="btSalvarAtual">Salvar atualização</button>
+    <button class="btn" id="btExcel">Baixar planilha (.xlsx)</button>
+    <div class="menu">
+      <button class="btn pontos" id="btMenu" aria-haspopup="true" aria-expanded="false" title="Mais opções">⋮</button>
+      <div class="menu-lista" id="menuLista" hidden>
+        <button id="btBuscarAtual">Buscar atualização</button>
+        <button id="btBackup">Salvar backup</button>
+        <button id="btRestaurar">Abrir backup</button>
+        <hr>
+        <button id="btGithub">Configurar publicação</button>
+        <button id="btZerar">Restaurar agenda padrão</button>
+        <hr>
+        <button id="btSair">Sair</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -516,7 +534,9 @@ dialog footer{padding:12px 16px;display:flex;justify-content:flex-end;gap:8px;bo
       <div class="campo"><label for="ghRepo">Repositório</label><input id="ghRepo" placeholder="ex.: agenda-expogenetica"></div>
       <div class="campo"><label for="ghBranch">Branch</label><input id="ghBranch" placeholder="main"></div>
       <div class="campo largo"><label for="ghPath">Arquivo de dados</label><input id="ghPath" placeholder="dados/agenda.json"></div>
-      <div class="campo largo"><label for="ghToken">Token de acesso (só para quem edita)</label>
+      <div class="campo largo"><label for="ghServidor">Servidor de publicação (deixa qualquer pessoa salvar, sem token)</label>
+        <input id="ghServidor" placeholder="https://…workers.dev" autocomplete="off" spellcheck="false"></div>
+      <div class="campo largo"><label for="ghToken">Token de acesso (alternativa ao servidor, só para quem tem conta no GitHub)</label>
         <div class="login-linha"><input type="password" id="ghToken" placeholder="github_pat_..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
         <button type="button" class="login-olho" id="btOlhoToken" title="Mostrar token">👁</button></div>
       </div>
@@ -535,7 +555,7 @@ dialog footer{padding:12px 16px;display:flex;justify-content:flex-end;gap:8px;bo
     <span style="flex:1"></span>
     <button class="bt" id="btGhFechar">Fechar</button>
     <button class="bt" id="btGhBaixar">Buscar do GitHub</button>
-    <button class="bt forte" id="btGhEnviar">Enviar para o GitHub</button>
+    <button class="bt forte" id="btGhEnviar">Salvar atualização</button>
   </footer>
 </dialog>
 
@@ -1688,7 +1708,8 @@ document.getElementById('btSair').onclick=async()=>{
 };
 
 /* ================== SINCRONIZAÇÃO COM O GITHUB ================== */
-let gh={owner:'',repo:'',branch:'main',caminho:'dados/agenda.json',token:'',sha:null,quando:null};
+let gh={owner:'pvgm91',repo:'ponta-expogenetica2026',branch:'main',caminho:'dados/agenda.json',
+        token:'',servidor:'',sha:null,quando:null};
 const dlgGh=document.getElementById('dlgGithub');
 
 function paraB64(txt){
@@ -1736,6 +1757,18 @@ async function buscarArquivoGh(){
   }
   return r.json();
 }
+/* config publicada no repositório: define o servidor para todo mundo que abrir o link */
+async function lerConfigDoRepo(){
+  if(!ghConfigurado()) return;
+  try{
+    const base=gh.caminho.replace(/[^/]+$/,'');
+    const url=`https://raw.githubusercontent.com/${gh.owner}/${gh.repo}/${gh.branch||'main'}/${base}config.json`;
+    const r=await fetch(url,{cache:'no-store'});
+    if(!r.ok) return;
+    const c=await r.json();
+    if(c.servidor&&!gh.servidor){ gh.servidor=c.servidor; await salvarCfgGh(); }
+  }catch(e){}
+}
 async function baixarDoGh(silencioso){
   if(!ghConfigurado()){ logGh('Preencha usuário, repositório e caminho do arquivo.',true); return; }
   try{
@@ -1750,6 +1783,32 @@ async function baixarDoGh(silencioso){
     renderTudo(); mudouLocal=false; await salvarCfgGh(); pintarStatusGh();
     logGh('Agenda carregada do GitHub.'); aviso('Agenda atualizada a partir do GitHub');
   }catch(e){ logGh(e.message,true); }
+}
+/* publica pelo servidor intermediário (quem não tem conta no GitHub) */
+async function enviarPeloServidor(){
+  const r=await fetch(gh.servidor,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({senha:SENHA_OK,conteudo:JSON.stringify(estado,null,1),sha:gh.sha||null})});
+  const txt=await r.text();
+  let j={}; try{ j=JSON.parse(txt); }catch(e){}
+  if(r.status===409){ throw new Error('Alguém publicou depois que você carregou. Use "Buscar atualização" antes de salvar.'); }
+  if(!r.ok) throw new Error(j.erro||('Servidor respondeu '+r.status+': '+txt.slice(0,120)));
+  return j.sha;
+}
+/* botão principal: usa o servidor se houver, senão o token */
+async function publicar(){
+  if(gh.servidor){
+    try{
+      logGh('Publicando…'); aviso('Salvando…');
+      gh.sha=await enviarPeloServidor();
+      gh.quando=Date.now(); mudouLocal=false;
+      await salvarCfgGh(); pintarStatusGh();
+      logGh('Publicado.'); aviso('Atualização salva para todo mundo');
+    }catch(e){ logGh(e.message,true); aviso(e.message); }
+    return;
+  }
+  if(gh.token) return enviarParaGh();
+  document.getElementById('btGithub').click();
+  logGh('Para salvar para todo mundo, informe o servidor de publicação ou um token.',true);
 }
 async function enviarParaGh(){
   if(!ghConfigurado()){ logGh('Preencha usuário, repositório e caminho do arquivo.',true); return; }
@@ -1782,6 +1841,7 @@ function lerCamposGh(){
   gh.branch=document.getElementById('ghBranch').value.trim()||'main';
   gh.caminho=document.getElementById('ghPath').value.trim()||'dados/agenda.json';
   gh.token=document.getElementById('ghToken').value.trim();
+  gh.servidor=document.getElementById('ghServidor').value.trim();
 }
 document.getElementById('btGithub').onclick=()=>{
   document.getElementById('ghOwner').value=gh.owner;
@@ -1789,12 +1849,13 @@ document.getElementById('btGithub').onclick=()=>{
   document.getElementById('ghBranch').value=gh.branch;
   document.getElementById('ghPath').value=gh.caminho;
   document.getElementById('ghToken').value=gh.token;
+  document.getElementById('ghServidor').value=gh.servidor||'';
   logGh(gh.quando?'Última sincronização: '+new Date(gh.quando).toLocaleString('pt-BR'):'');
   abrirDlg(dlgGh);
 };
 document.getElementById('btGhFechar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); pintarStatusGh(); fecharDlg(dlgGh); };
 document.getElementById('btGhBaixar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); baixarDoGh(false); };
-document.getElementById('btGhEnviar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); enviarParaGh(); };
+document.getElementById('btGhEnviar').onclick=async()=>{ lerCamposGh(); await salvarCfgGh(); publicar(); };
 document.getElementById('btOlhoToken').onclick=()=>{
   const c=document.getElementById('ghToken');
   c.type=c.type==='password'?'text':'password';
@@ -1844,6 +1905,18 @@ document.getElementById('btGhEsquecer').onclick=async()=>{
   await salvarCfgGh(); logGh('Token apagado deste navegador.');
 };
 
+/* ================== MENU ================== */
+const menuLista=document.getElementById('menuLista');
+function abrirMenu(mostrar){
+  menuLista.hidden=!mostrar;
+  document.getElementById('btMenu').setAttribute('aria-expanded',mostrar);
+}
+document.getElementById('btMenu').onclick=e=>{ e.stopPropagation(); abrirMenu(menuLista.hidden); };
+document.addEventListener('click',e=>{ if(!e.target.closest('.menu')) abrirMenu(false); });
+menuLista.addEventListener('click',()=>abrirMenu(false));
+document.getElementById('btSalvarAtual').onclick=()=>publicar();
+document.getElementById('btBuscarAtual').onclick=()=>baixarDoGh(false);
+
 /* ================== ABAS ================== */
 document.querySelectorAll('.aba').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.aba').forEach(x=>x.setAttribute('aria-selected',x===b));
@@ -1854,6 +1927,6 @@ document.querySelectorAll('.aba').forEach(b=>b.onclick=()=>{
 (async()=>{
   await conferirAcesso();
   await carregar(); migrar(); renderTudo(); mudouLocal=false; pintarStatusGh();
-  if(ghConfigurado()) baixarDoGh(true);
+  if(ghConfigurado()){ await lerConfigDoRepo(); baixarDoGh(true); }
 })();
 </script>
