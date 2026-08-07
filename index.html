@@ -1799,26 +1799,43 @@ document.getElementById('btOlhoToken').onclick=()=>{
   const c=document.getElementById('ghToken');
   c.type=c.type==='password'?'text':'password';
 };
-/* diagnóstico: diz exatamente em que etapa o GitHub recusa */
+/* diagnóstico: grava e apaga um arquivo de teste — é o único jeito de saber se o token escreve */
 async function testarTokenGh(){
   lerCamposGh(); await salvarCfgGh();
   if(!gh.token){ logGh('Cole o token no campo acima.',true); return; }
   const t=gh.token;
-  const formato=/^(github_pat_|ghp_|gho_|ghs_)/.test(t)?'':' — atenção: não começa com github_pat_ nem ghp_, pode ser um pedaço só ou o nome do token';
+  const formato=/^(github_pat_|ghp_|gho_|ghs_)/.test(t)?'':` — atenção: não começa com github_pat_ nem ghp_, pode ser um pedaço só ou o nome do token`;
   try{
-    logGh(`Testando token de ${t.length} caracteres${formato}…`);
+    logGh(`Identificando o token (${t.length} caracteres)…`);
     const r=await fetch('https://api.github.com/user',{headers:cabecalhosGh(),cache:'no-store'});
-    if(r.status===401){ logGh(`O GitHub não reconheceu este token (401). Ele tem ${t.length} caracteres${formato}. Gere um novo e cole inteiro.`,true); return; }
+    if(r.status===401){ logGh(`O GitHub não reconheceu este token (401)${formato}. Gere outro e cole inteiro.`,true); return; }
     if(!r.ok){ logGh('GitHub respondeu '+r.status+' ao identificar o token.',true); return; }
     const u=await r.json();
-    const r2=await fetch(`https://api.github.com/repos/${gh.owner}/${gh.repo}`,{headers:cabecalhosGh(),cache:'no-store'});
-    if(r2.status===404){ logGh(`Token válido (conta ${u.login}), mas ele não enxerga ${gh.owner}/${gh.repo}. Em Repository access, marque "Only select repositories" e escolha este repositório.`,true); return; }
-    if(!r2.ok){ logGh(`Token válido (conta ${u.login}), mas o repositório respondeu ${r2.status}.`,true); return; }
-    const repo=await r2.json();
-    const escreve=repo.permissions&&repo.permissions.push;
-    logGh(escreve
-      ? `Tudo certo: token da conta ${u.login} com permissão de escrita em ${gh.owner}/${gh.repo}. Pode usar o Enviar.`
-      : `Token válido (conta ${u.login}) e enxerga o repositório, mas só para leitura. Ajuste Permissions → Contents para "Read and write" e clique em Update token.`, !escreve);
+
+    logGh(`Token da conta ${u.login}. Testando escrita em ${gh.owner}/${gh.repo}…`);
+    const alvo=`.teste-permissao-${Date.now()}.txt`;
+    const url=`https://api.github.com/repos/${gh.owner}/${gh.repo}/contents/${alvo}`;
+    const put=await fetch(url,{method:'PUT',headers:{...cabecalhosGh(),'Content-Type':'application/json'},
+      body:JSON.stringify({message:'teste de permissão do token',content:paraB64('ok'),branch:gh.branch||'main'})});
+
+    if(put.status===403){
+      logGh(`O token lê, mas não pode gravar (403). Abra o token em github.com/settings/tokens?type=beta e confira o campo `+
+            `"Repository access": se estiver em "Public Repositories", ele nunca vai escrever — troque para "Only select repositories", `+
+            `escolha ${gh.repo} e então marque Permissions → Contents: Read and write.`,true);
+      return;
+    }
+    if(put.status===404){ logGh(`O token não enxerga ${gh.owner}/${gh.repo} para escrita. Em Repository access, marque "Only select repositories" e escolha este repositório.`,true); return; }
+    if(!put.ok){ const tx=await put.text(); logGh(`GitHub respondeu ${put.status} no teste de escrita: ${tx.slice(0,120)}`,true); return; }
+
+    const criado=await put.json();
+    let limpou=false;
+    try{
+      const del=await fetch(url,{method:'DELETE',headers:{...cabecalhosGh(),'Content-Type':'application/json'},
+        body:JSON.stringify({message:'remove arquivo de teste',sha:criado.content.sha,branch:gh.branch||'main'})});
+      limpou=del.ok;
+    }catch(e){}
+    logGh(`Tudo certo: o token da conta ${u.login} gravou e apagou um arquivo de teste em ${gh.owner}/${gh.repo}. `+
+          `Pode usar o Enviar.${limpou?'':' (Sobrou o arquivo '+alvo+' no repositório, pode apagar pelo site.)'}`);
   }catch(e){ logGh('Falha ao contatar o GitHub: '+e.message,true); }
 }
 document.getElementById('btGhTestar').onclick=testarTokenGh;
