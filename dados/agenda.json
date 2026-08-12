@@ -334,6 +334,12 @@
    "cor": "#7a3e8f"
   },
   {
+   "id": "p11",
+   "nome": "Guilherme Berdu",
+   "area": "",
+   "cor": "#2F7A6A"
+  },
+  {
    "id": "p9",
    "nome": "Fábio Turati",
    "area": "",
@@ -362,12 +368,6 @@
    "nome": "Paulo Mariano",
    "area": "",
    "cor": "#3C6E1F"
-  },
-  {
-   "id": "p11",
-   "nome": "Guilherme Berdu",
-   "area": "",
-   "cor": "#2F7A6A"
   },
   {
    "id": "p12",
@@ -422,7 +422,6 @@
   "p8|2026-08-17": true,
   "p8|2026-08-18": true,
   "p8|2026-08-19": true,
-  "p9|2026-08-14": true,
   "p9|2026-08-15": true,
   "p9|2026-08-16": true,
   "p9|2026-08-17": true,
@@ -438,7 +437,10 @@
   "p12|2026-08-21": true,
   "p12|2026-08-22": true,
   "p12|2026-08-23": true,
-  "p2|2026-08-17": true
+  "p2|2026-08-17": true,
+  "p11|2026-08-14": true,
+  "p11|2026-08-15": true,
+  "p11|2026-08-16": true
  },
  "eventos": [
   {
@@ -479,7 +481,7 @@
    "resp": [
     "p10",
     "p2",
-    "p9"
+    "p11"
    ],
    "tipo": "evento"
   },
@@ -515,8 +517,8 @@
    "titulo": "Leilão JBJ",
    "local": "",
    "resp": [
-    "p9",
-    "p10"
+    "p10",
+    "p11"
    ],
    "tipo": "evento"
   },
