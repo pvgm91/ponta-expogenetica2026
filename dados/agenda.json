@@ -94,7 +94,7 @@
    "pid": "p0",
    "dia": "2026-08-16",
    "a": 480,
-   "b": 720
+   "b": 600
   },
   {
    "pid": "p2",
@@ -461,9 +461,9 @@
   {
    "id": "e3",
    "dia": "2026-08-14",
-   "inicio": "16:00",
-   "fim": "18:00",
-   "titulo": "Gravação: Efficiency Tour",
+   "inicio": "15:00",
+   "fim": "17:00",
+   "titulo": "Gravação: Efficiency Tour (CRV)",
    "local": "",
    "resp": [
     "p2",
@@ -522,9 +522,9 @@
   {
    "id": "e8",
    "dia": "2026-08-15",
-   "inicio": "14:00",
-   "fim": "18:00",
-   "titulo": "Gravação: Efficiency Tour",
+   "inicio": "13:00",
+   "fim": "15:00",
+   "titulo": "Gravação: Efficiency Tour - SEMEX",
    "local": "",
    "resp": [
     "p2",
@@ -559,12 +559,12 @@
   {
    "id": "e11",
    "dia": "2026-08-16",
-   "inicio": "14:00",
-   "fim": "18:00",
-   "titulo": "Gravação: Efficiency Tour",
+   "inicio": "08:00",
+   "fim": "10:00",
+   "titulo": "Gravação: Efficiency Tour - ABS",
    "local": "",
    "resp": [
-    "p2",
+    "p0",
     "p3",
     "p4"
    ],
@@ -578,9 +578,7 @@
    "titulo": "Leilão Rancho da Matinha",
    "local": "",
    "resp": [
-    "p0",
-    "p1",
-    "p2"
+    "p1"
    ],
    "tipo": "evento"
   },
@@ -924,6 +922,34 @@
     "p0",
     "p1",
     "p6"
+   ]
+  },
+  {
+   "id": "emsq1wzitpuj",
+   "titulo": "Gravação: Efficiency Tour - ALTA GENETICS",
+   "dia": "2026-08-15",
+   "inicio": "15:00",
+   "fim": "17:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": [
+    "p2",
+    "p3",
+    "p4"
+   ]
+  },
+  {
+   "id": "emsq1zwxmbzf",
+   "titulo": "Gravação: Efficiency Tour - GENEX",
+   "dia": "2026-08-16",
+   "inicio": "15:00",
+   "fim": "17:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": [
+    "p1",
+    "p3",
+    "p4"
    ]
   }
  ],
