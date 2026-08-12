@@ -467,11 +467,11 @@
    "dia": "2026-08-14",
    "inicio": "14:00",
    "fim": "16:00",
-   "titulo": "Abertura/Leilão EAO",
+   "titulo": "Leilão EAO",
    "local": "",
    "resp": [
-    "p2",
     "p10",
+    "p2",
     "p9"
    ],
    "tipo": "evento"
