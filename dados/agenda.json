@@ -640,7 +640,6 @@
    "resp": [
     "p0",
     "p1",
-    "p2",
     "p6"
    ],
    "tipo": "evento"
@@ -666,11 +665,7 @@
    "fim": "23:00",
    "titulo": "Leilão Katispera",
    "local": "",
-   "resp": [
-    "p2",
-    "p7",
-    "p8"
-   ],
+   "resp": [],
    "tipo": "evento"
   },
   {
@@ -909,10 +904,7 @@
    "fim": "11:00",
    "local": "Estande Ponta",
    "tipo": "evento",
-   "resp": [
-    "p2",
-    "p5"
-   ]
+   "resp": []
   },
   {
    "id": "emshwm2l4lk0",
