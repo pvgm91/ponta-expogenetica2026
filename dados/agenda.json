@@ -652,7 +652,11 @@
    "fim": "20:00",
    "titulo": "ATJ Geneplus",
    "local": "",
-   "resp": [],
+   "resp": [
+    "p0",
+    "p1",
+    "p6"
+   ],
    "tipo": "evento"
   },
   {
