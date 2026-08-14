@@ -540,9 +540,9 @@
    "titulo": "Leilão Terra Brava",
    "local": "",
    "resp": [
+    "p2",
     "p0",
-    "p1",
-    "p2"
+    "p1"
    ],
    "tipo": "evento"
   },
