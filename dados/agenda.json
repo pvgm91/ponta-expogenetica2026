@@ -1007,6 +1007,26 @@
    "local": "",
    "tipo": "evento",
    "resp": []
+  },
+  {
+   "id": "emsu0xg59lg4",
+   "titulo": "Desfile de Touros  Alta",
+   "dia": "2026-08-18",
+   "inicio": "09:00",
+   "fim": "11:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": []
+  },
+  {
+   "id": "emsu0y3bboby",
+   "titulo": "Desfile de Touros Alta",
+   "dia": "2026-08-19",
+   "inicio": "09:00",
+   "fim": "11:00",
+   "local": "",
+   "tipo": "evento",
+   "resp": []
   }
  ],
  "contatos": [
